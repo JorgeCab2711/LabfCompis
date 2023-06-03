@@ -1,0 +1,24 @@
+let delim = [' ''\t''\n']
+let ws = delim+
+let digit = ['0'-'9']
+let digits = digit+
+let sign = ['+'|'-']
+let number = (sign)digits(,digits)
+let letterh = ['A'-'F']
+let lettersh = letterh+
+let digite = ['0'-'9']
+let digitse = digite+
+let hexdigit = ((letterh)(digitse))|((digitse)(letterh))*
+
+rule gettoken = 
+     "+" {return "SUMA"}
+    | "-" {return "RESTA"}
+    | "*" {return "MULTIPLICACION"}
+    | "/" {return "DIVISION"}
+    | "(" {return "PARENTESIS_IZQUIERDO"}
+    | ")" {return "PARENTESIS_DERECHO"}
+    | "^" {return "POTENCIA"}
+    | digits {return "DÍGITO"}
+    | number {return "NÚMERO CON DECIMAL"}
+    | hexdigit {return "NÚMERO HEXADECIMAL"}
+
